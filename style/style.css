@@ -1,0 +1,121 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/09/2016, 13:01:07
+    Author     : 11374
+*/
+body{
+  margin:0 auto;		
+  background-color: #37dee2 !IMPORTANT;
+  }
+.principal{
+    width:830px;
+    height: 100%;
+    margin: 0 auto;
+    background-color:#FFF;
+    border: 1px solid #e3e3e3;
+    }
+.container-wmenu
+{
+        margin-top: 35px;
+
+}
+.container-int{
+    background-color: #e7e7e7;
+}
+table{
+    border-color: black !IMPORTANT;
+}
+.cxlogin{
+    
+    margin: 0 -150px;
+    max-width: 330px;
+    height: 175px;
+    padding: 5px;
+    left: 50%;
+    right: 50%;
+    position: absolute;
+    top: 40%;
+    bottom: 50%;
+    border: 1px solid #0000FF;
+    background-color: #d2d6fd;
+    border-radius: 3px;
+}
+
+form.login {
+    text-align: left;
+    font: 16px Verdana, sans-serif;
+    
+}
+
+.campos {
+background-color:#B0E0E6; 
+font: 11px georgia, sans-serif;
+color:#021652;
+height: 20px;
+margin: 3px;
+text-align: left;
+font: 14px Verdana, sans-serif;
+}
+.botao {
+margin: 5px;
+height: 30px;
+text-align: center;
+width: 100px;
+background-color: #486eef;
+font: 14px Arial, sans-serif;
+color: #CCFFFF;
+}
+.center
+{
+    text-align: center;
+}
+.label{
+    width: 100px;
+}
+.logo{
+    position: absolute;
+    margin-left: -125px;
+}
+.blogin{
+    text-align: center;
+    margin: 0 -250px;
+    max-width: 500px;
+    height: 600px;
+    padding: 5px;
+    left: 50%;
+    right: 50%;
+    position: absolute;
+    top: 10%;
+    bottom: 50%;
+}
+#menu ul {
+    padding:0px;
+    height: 25px;
+    border-radius: 5px;
+    margin:0px;
+    float:left;
+    width: 100%;
+    background-color:#0cb2e0;
+    list-style:none;
+    font:100% Tahoma;
+}
+#menu ul li { display: inline; } /*Se quiser deixar o menu vertical altere esta linha!*/
+ 
+#menu ul li a {
+    background-color:transparent;
+    color: #333;
+    text-decoration: none;
+    
+    padding: 2px 10px;
+    float:left;
+}
+ 
+#menu ul li a:hover {
+    background-color:#62ddff;;
+    color: #272727;
+    border-bottom:1px solid #EA0000;
+}
