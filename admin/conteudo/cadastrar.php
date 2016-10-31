@@ -44,7 +44,7 @@ if (isset($_POST['enviar'])) {
         if ($PDO->query($sql_code)) {
             unset($_POST);
 //            header("Location: index.php");
-            header("Location: index.php?p=usuarios");
+            header("Location: index.php?p=painel&padm=usuarios");
             
         }  else {
             echo "<div class='alert alert-danger'>
@@ -56,7 +56,17 @@ if (isset($_POST['enviar'])) {
 ?>
 
 <h1>Cadastrar Usuário</h1>
-<?php
+
+<!--<a href="index.php?p=usuarios">< Voltar</a>-->
+
+
+<a href="javascript:window.history.go(-1)">Voltar</a>
+<form class="form-horizontal" action="index.php?p=painel&padm=cadastrar" method="POST" enctype="multipart/form-data" >
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Novo Usuário</legend>
+        <?php
 if (count($erro) > 0) {
     echo "<div class='erro'>";
     foreach ($erro as $valor)
@@ -67,15 +77,6 @@ if (count($erro) > 0) {
     echo "</div>";
 }
 ?>
-<!--<a href="index.php?p=usuarios">< Voltar</a>-->
-
-
-<a href="javascript:window.history.go(-1)">Voltar</a>
-<form class="form-horizontal" action="index.php?p=painel?padm=cadastrar" method="POST" enctype="multipart/form-data" >
-    <fieldset>
-
-        <!-- Form Name -->
-        <legend>Novo Usuário</legend>
         
         <!-- Text input-->
         <div class="form-group">
