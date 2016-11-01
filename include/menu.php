@@ -3,7 +3,7 @@
 $menu_logo = 'index.php?p=painel';
 $menu_inicio = '<a href="index.php?p=painel">Início</a>';
 $menu_cadastrar =  '<a href="index.php?p=cadastrar">Cadastrar</a>';
-$menu_exibe = "<a href='index.php?p=usuarios'>Usuários</a>";
+$menu_usuarios = "<a class='btn dropdown-toggle' data-toggle='dropdown' href='index.php?p=usuarios'>Usuários<span class='caret'></span></a>";
 $menu_sair = "<a href='index.php?p=core/logoff'>Sair</a>";
 
 $mostra_menus = " 
@@ -29,9 +29,14 @@ $mostra_menus = "
                     </li>
                     <li>
                         $menu_cadastrar
-                    </li>
-                    <li>
-                        $menu_exibe
+                    </li>dsdsdsds
+                    <li class='dropdown'>
+                        $menu_usuarios
+                            <ul class='dropdown-menu'>
+                            
+                            $menu_inicio
+                            
+                          </ul>
                     </li>
                     <li>
                         $menu_sair

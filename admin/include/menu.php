@@ -2,8 +2,9 @@
 
 $menu_logo = 'index.php?p=painel';
 $menu_inicio = '<a href="index.php?p=painel">Início</a>';
-$menu_cadastrar =  '<a href="index.php?p=painel&padm=cadastrar">Cadastrar</a>';
-$menu_exibe = "<a href='index.php?p=painel&padm=usuarios'>Usuários</a>";
+$menu_usuarios = "<a data-toggle='dropdown' href='#'>Usuários<span class='caret'></span></a>";
+$menu_usuarios_todos = "<a href='index.php?p=painel&padm=usuarios'>Pesquisar</a>";
+$menu_usuarios_new =  '<a href="index.php?p=painel&padm=cadastrar">Novo</a>';
 $menu_sair = "<a href='index.php?p=core/logoff'>Sair</a>";
 
 $mostra_menus = " 
@@ -24,14 +25,17 @@ $mostra_menus = "
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
                 <ul class='nav navbar-nav'>
-                    <li>
-                        $menu_inicio
-                    </li>
-                    <li>
-                        $menu_cadastrar
-                    </li>
-                    <li>
-                        $menu_exibe
+
+                    <li class='dropdown'>
+                        $menu_usuarios
+                            <ul class='dropdown-menu'>
+                            <li>
+                                $menu_usuarios_new
+                            </li>
+                            <li>
+                                $menu_usuarios_todos
+                            </li>
+                          </ul>
                     </li>
                     <li>
                         $menu_sair
