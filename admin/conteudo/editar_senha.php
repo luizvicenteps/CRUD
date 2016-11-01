@@ -9,24 +9,26 @@ error_reporting(0);
 
                 if (isset($_POST['enviarnew'])) {
                     
-//		if (strlen($senha) < 8 || strlen($senha) > 16)
-//                $erro[] = "Preencha a senha corretamente.";
-//
-//                if ($senha != $rsenha)
-//                $erro[] = "As senhas não batem.";
+		if (strlen($senha) < 8 || strlen($senha) > 16)
+                $erro[] = "Preencha a senha corretamente.";
+
+                if ($senha != $rsenha)
+                $erro[] = "As senhas não batem.";
                 if(substr_count($email, '@') != 1 || substr_count($email, '.') < 1 || substr_count($email, '.') > 2)
                     $erro[] = "Preencha o e-mail corretamente.";
 
                 // 3 - Inserção no Banco e redirecionamento
                 if (count($erro) == 0) {
                     
-                
+                $senha = md5($_POST['senha']);
                 $sql_code = "UPDATE t_users SET
                             nome = '$_POST[nome]', 
                             sobrenome = '$_POST[sobrenome]', 
                             email = '$_POST[email]', 
-                            login = '$_POST[login]', 
-                            sexo = '$_POST[sexo]' 
+                            senha = '$senha', 
+                            sexo = '$_POST[sexo]', 
+                            niveldeacesso = '$_POST[niveldeacesso]',
+                            saldo = '$_POST[saldo]'
                             WHERE codigo = '$usu_codigo'";
                 $PDO->query($sql_code);
                 echo "<script> location.href='index.php?p=painel&padm=usuarios'; </script>";
@@ -46,13 +48,14 @@ error_reporting(0);
 		$_POST[email] = $mostra['email'];
 		$_POST[login] = $mostra['login'];
 		$_POST[sexo] = $mostra['sexo'];
-		}
+		$_POST[niveldeacesso] = $mostra['niveldeacesso'];
+                }
 
 	}
 
 ?>
-
 <h1>Editar Usuário</h1>
+
 <?php
 if (count($erro) > 0) {
     echo "<div class='erro'>";
@@ -64,29 +67,27 @@ if (count($erro) > 0) {
     echo "</div>";
 }
 ?>
-
-<form class="form-horizontal" action="index.php?p=painel&padm=editar&usuario=<?php echo $usu_codigo;?>" method="POST" enctype="multipart/form-data" >
+<form class="form-horizontal" action="index.php?p=painel&padm=editar_senha&usuario=<?php echo $usu_codigo;?>" method="POST" enctype="multipart/form-data" >
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Alterar Informações Pessoais</legend>
+        <legend>Alterar Senha</legend>
 
         <!-- Text input-->
         <div class="form-group">
-             <div class="text-center">
+            <div class="text-center">
           <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-         
-            </div>  
-            <label class="col-md-4 control-label" for="nome">Avatar:</label>  
+            </div>            
+            <!--<label class="col-md-4 control-label" for="nome">Avatar:</label>-->  
             <div class="col-md-4">
-                <input type="file" name="foto" class="form-control input-md"/>
+           
 
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label" for="nome">*Nome:</label>  
             <div class="col-md-4">
-                <input id="nome" name="nome" value="<?php echo $_POST[nome]; ?>" type="text"  placeholder="" class="form-control input-md" required  ="">
+                <input id="nome" name="nome" value="<?php echo $_POST[nome]; ?>" type="text"   readonly="" placeholder="" class="form-control input-md" required  ="">
 
             </div>
         </div>
@@ -95,40 +96,38 @@ if (count($erro) > 0) {
         <div class="form-group">
             <label class="col-md-4 control-label" for="sobrenome">*Sobrenome:</label>  
             <div class="col-md-4">
-                <input id="sobrenome" name="sobrenome" value="<?php echo $_POST[sobrenome]; ?>" type="text" placeholder="" class="form-control input-md" required="">
+                <input id="sobrenome" name="sobrenome" value="<?php echo $_POST[sobrenome]; ?>" readonly="" type="text" placeholder="" class="form-control input-md" required="">
 
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="login">*Login: </label>  
-            <div class="col-md-4">
-                <input id="login" name="login" value="<?php echo $_POST[login]; ?>" type="text" placeholder="" class="form-control input-md" required="">
-            </div>
-        </div>
-
+        
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="email">*E-mail:</label>  
             <div class="col-md-4">
-                <input id="email" name="email" value="<?php echo $_POST[email]; ?>" type="email" placeholder="" class="form-control input-md" required="">
+                <input id="email" name="email" value="<?php echo $_POST[email]; ?>" readonly=""  type="email" placeholder="" class="form-control input-md" required="">
 
             </div>
         </div>
 
         <!-- Select Basic -->
+        <!-- Password input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="sexo">*Sexo:</label>
-            <div class="col-md-2">
-                <select id="sexo" name="sexo" class="form-control" >
-                    <option value="#">Selecione</option>
-                    <option value="1" <?php if($_POST[sexo] == 1) echo "selected"; ?> >Masculino</option>
-                    <option value="2" <?php if($_POST[sexo] == 2) echo "selected"; ?> >Feminino</option>
-                </select>
+            <label class="col-md-4 control-label" for="senha">*NOVA Senha:</label>
+            <div class="col-md-4">
+                <input id="senha" name="senha" value="<?php echo $_POST[senha]; ?>" type="password" placeholder="" class="form-control input-md" required="">
+                <span class="help-block">Mín-8  /  Máx-16</span>
+                
             </div>
         </div>
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="repetesenha">*Repita NOVA Senha:</label>
+            <div class="col-md-4">
+                <input id="rsenha" name="rsenha" value="<?php echo $_POST[rsenha]; ?>" type="password" placeholder="" class="form-control input-md" required="">
 
-
- 
+            </div>
+        </div>
 
 
 

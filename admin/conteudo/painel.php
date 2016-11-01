@@ -11,6 +11,9 @@ if(isset($_GET['padm']))
     }
     }  else {
 echo '<h1>Olá '.$_SESSION['nome'].' '.$_SESSION['sobrenome'].'!</h1>';
+echo "<a href='index.php?p=painel&padm=editar&usuario=".$_SESSION['codigo']."'><h4>Alterar Dados</h4></a>";
+echo "<a href='index.php?p=painel&padm=editar_senha&usuario=".$_SESSION['codigo']."'><h4>Alterar Senha</h4></a>";
+
 }
 
 

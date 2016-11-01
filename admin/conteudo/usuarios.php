@@ -63,14 +63,20 @@ echo "<h1>Usuários - Todos</h1>"; ?>
                         <td style="align-items:center">
 
                             <a href="index.php?p=painel&padm=editar&usuario=<?php echo $mostra['codigo']; ?>">
-                                <button type="button" class="btn btn-xs btn-default">
+                                <button title="Alterar Dados do Usuário" type="button" class="btn btn-xs btn-default">
                                     <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </a> 
+                            <span>| |</span>
+                            <a href="index.php?p=painel&padm=editar_senha&usuario=<?php echo $mostra['codigo']; ?>">
+                                <button title="Alterar Senha" type="button" class="btn btn-xs btn-default">
+                                    <span class="glyphicon glyphicon-lock"></span>
                                 </button>
                             </a> 
                             <span>| |</span>
                             <a href="javascript: if(confirm('Tem certeza que deseja deletar o usuário <?php echo $mostra['nome']; ?>?'))
                                location.href='index.php?p=painel&padm=deletar&usuario=<?php echo $mostra['codigo']; ?>';">
-                                <button type="button" data-bind="click: $parent.remove" class="remove-news btn btn-xs btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+                                <button title="EXCLUIR Usuário" type="button" data-bind="click: $parent.remove" class="remove-news btn btn-xs btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </a>
