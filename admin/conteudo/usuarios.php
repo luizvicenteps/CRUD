@@ -2,7 +2,7 @@
 	$acs[1] = "Admin";
 	$s[0] = "Masc";
 	$s[1] = "Femi";
-$sql_code = "SELECT * FROM t_users";        
+$sql_code = "SELECT * FROM t_users ORDER BY datadecadastro ASC";        
 $sql_query = $PDO->query($sql_code);
 $linha = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 

@@ -1,19 +1,23 @@
 <?php
 error_reporting(0);
-include 'core/session.php';
+
         
 $arquivo = $_FILES['foto'];        
 extract($_POST);
         
 if (isset($_POST['enviar'])) {
-
+    
+    $sql_code = "SELECT email FROM t_users WHERE email = '$email'";        
+    $sql_query = $PDO->query($sql_code);
+    
     if (strlen($senha) < 8 || strlen($senha) > 16)
         $erro[] = "Preencha a senha corretamente.";
     if ($senha != $rsenha)
         $erro[] = "As senhas não batem.";
     if(substr_count($email, '@') != 1 || substr_count($email, '.') < 1 || substr_count($email, '.') > 2)
         $erro[] = "Preencha o e-mail corretamente.";
-
+    if($sql_query->rowCount() > 0 )
+        $erro[] = "E-mail já cadastrado.";
     // 3 - Inserção no Banco e redirecionamento
     if (count($erro) == 0) {
         if(isset($arquivo['tmp_name']) && empty($arquivo['tmp_name']) == false){
@@ -26,7 +30,7 @@ if (isset($_POST['enviar'])) {
         $sql_code = "INSERT INTO t_users (
 				nome, 
 				sobrenome, 
-                                login,
+                                apelido,
 				email, 
 				senha, 
 				sexo, 
@@ -34,7 +38,7 @@ if (isset($_POST['enviar'])) {
 				VALUES(
 				'$nome',
 				'$sobrenome',
-				'$login',
+				'$apelido',
 				'$email',
 				'$senha',
 				'$sexo',
@@ -109,9 +113,9 @@ if (count($erro) > 0) {
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label" for="login">*Login: </label>  
+            <label class="col-md-4 control-label" for="login">*Apelido: </label>  
             <div class="col-md-4">
-                <input id="login" name="login" value="<?php echo $_POST[login]; ?>" type="text" placeholder="" class="form-control input-md" required="">
+                <input id="apelido" name="apelido" value="<?php echo $_POST[apelido]; ?>" type="text" placeholder="" class="form-control input-md" required="">
             </div>
         </div>
 
@@ -130,8 +134,8 @@ if (count($erro) > 0) {
             <div class="col-md-2">
                 <select id="sexo" name="sexo" class="form-control" >
                     <option value="#">Selecione</option>
-                    <option value="1">Masculino</option>
-                    <option value="2">Feminino</option>
+                    <option value="1" <?php if($_POST[sexo] == 1) echo "selected"; ?> >Masculino</option>
+                    <option value="2" <?php if($_POST[sexo] == 2) echo "selected"; ?> >Feminino</option>
                 </select>
             </div>
         </div>

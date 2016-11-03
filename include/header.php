@@ -66,6 +66,7 @@ include_once '../classe/conexao.php';
                             "sSortDescending": ": Ordenar colunas de forma descendente"
                             }
                     }
+                   
                 }
                 );
             });

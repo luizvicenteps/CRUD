@@ -3,6 +3,8 @@ error_reporting(0);
 	if(!isset($_GET['usuario']))
 		echo "<script> alert('Codigo invalido.'); location.href='index.php?p=painel&padm=usuarios'; </script>";
 	else{
+                $sql_code = "SELECT email FROM t_users WHERE email = '$email'";        
+                $sql_query = $PDO->query($sql_code);
 
                 $usu_codigo = intval($_GET['usuario']);
                 extract($_POST);
@@ -16,7 +18,8 @@ error_reporting(0);
 //                $erro[] = "As senhas não batem.";
                 if(substr_count($email, '@') != 1 || substr_count($email, '.') < 1 || substr_count($email, '.') > 2)
                     $erro[] = "Preencha o e-mail corretamente.";
-
+                if($sql_query->rowCount() > 0 )
+                $erro[] = "E-mail já cadastrado.";
                 // 3 - Inserção no Banco e redirecionamento
                 if (count($erro) == 0) {
                     
@@ -25,7 +28,7 @@ error_reporting(0);
                             nome = '$_POST[nome]', 
                             sobrenome = '$_POST[sobrenome]', 
                             email = '$_POST[email]', 
-                            login = '$_POST[login]', 
+                            login = '$_POST[apelido]', 
                             sexo = '$_POST[sexo]' 
                             WHERE codigo = '$usu_codigo'";
                 $PDO->query($sql_code);
@@ -44,7 +47,7 @@ error_reporting(0);
                 $_POST[nome] = $mostra['nome'];
 		$_POST[sobrenome] = $mostra['sobrenome'];
 		$_POST[email] = $mostra['email'];
-		$_POST[login] = $mostra['login'];
+		$_POST[apelido] = $mostra['apelido'];
 		$_POST[sexo] = $mostra['sexo'];
 		}
 
@@ -100,9 +103,9 @@ if (count($erro) > 0) {
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label" for="login">*Login: </label>  
+            <label class="col-md-4 control-label" for="login">*Apelido: </label>  
             <div class="col-md-4">
-                <input id="login" name="login" value="<?php echo $_POST[login]; ?>" type="text" placeholder="" class="form-control input-md" required="">
+                <input id="apelido" name="apelido" value="<?php echo $_POST[apelido]; ?>" type="text" placeholder="" class="form-control input-md" required="">
             </div>
         </div>
 

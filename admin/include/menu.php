@@ -10,7 +10,7 @@ $menu_usuario_senha = "<a href='index.php?p=painel&padm=editar_senha&usuario=".$
 $menu_usuario_perfil = "<a href='index.php?p=painel&padm=editar&usuario=".$_SESSION['codigo']."' class='btn btn-primary btn-sm active'>Seu Perfil</a>";
 $menu_usuario_nome = $_SESSION["nome"];
 $menu_usuario_sobrenome = $_SESSION['sobrenome'];
-$menu_usuario_apelido = $_SESSION['login'];//TROCAR Login para forma que gostaria de ser Tratado
+$menu_usuario_apelido = $_SESSION["apelido"];//TROCAR Login para forma que gostaria de ser Tratado
 $menu_usuario_email = $_SESSION["email"];
 $menu_usuario_img = "<img src='//placehold.it/100' class='avatar img-circle' alt='avatar'>";
 
