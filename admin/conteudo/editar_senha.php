@@ -14,21 +14,12 @@ error_reporting(0);
 
                 if ($senha != $rsenha)
                 $erro[] = "As senhas não batem.";
-                if(substr_count($email, '@') != 1 || substr_count($email, '.') < 1 || substr_count($email, '.') > 2)
-                    $erro[] = "Preencha o e-mail corretamente.";
-
+                
                 // 3 - Inserção no Banco e redirecionamento
                 if (count($erro) == 0) {
-                    
                 $senha = md5($_POST['senha']);
                 $sql_code = "UPDATE t_users SET
-                            nome = '$_POST[nome]', 
-                            sobrenome = '$_POST[sobrenome]', 
-                            email = '$_POST[email]', 
-                            senha = '$senha', 
-                            sexo = '$_POST[sexo]', 
-                            niveldeacesso = '$_POST[niveldeacesso]',
-                            saldo = '$_POST[saldo]'
+                            senha = '$senha' 
                             WHERE codigo = '$usu_codigo'";
                 $PDO->query($sql_code);
                 echo "<script> location.href='index.php?p=painel&padm=usuarios'; </script>";
@@ -46,10 +37,7 @@ error_reporting(0);
                 $_POST[nome] = $mostra['nome'];
 		$_POST[sobrenome] = $mostra['sobrenome'];
 		$_POST[email] = $mostra['email'];
-		$_POST[login] = $mostra['login'];
-		$_POST[sexo] = $mostra['sexo'];
-		$_POST[niveldeacesso] = $mostra['niveldeacesso'];
-                }
+		}
 
 	}
 

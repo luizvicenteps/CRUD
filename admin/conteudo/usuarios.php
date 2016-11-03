@@ -2,7 +2,7 @@
 	$acs[1] = "Admin";
 	$s[0] = "Masc";
 	$s[1] = "Femi";
-$sql_code = "SELECT * FROM t_users ORDER BY datadecadastro ASC";        
+$sql_code = "SELECT * FROM t_users";        
 $sql_query = $PDO->query($sql_code);
 $linha = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -30,8 +30,8 @@ echo "<h1>Pesquisar Usuários</h1>"; ?>
                     <th><strong>Cod</strong></th>
                     <th><strong>Nome</strong></th>
                     <th>Sobrenome</th>
-<!--                    <th>Login</th>
-                    <th>Sexo</th>-->
+                    <th>Login</th>
+<!--                    <th>Sexo</th>-->
                     <th>E-mail</th>
                     <th>Perfil</th>
                     <th>Data de Cadastro</th>
@@ -51,8 +51,8 @@ echo "<h1>Pesquisar Usuários</h1>"; ?>
                         <td><?php echo $mostra['codigo']; ?></td>
                         <td><?php echo $mostra['nome']; ?></td>
                         <td><?php echo $mostra['sobrenome']; ?></td>
-<!--                        <td><?php echo $mostra['login']; ?></td>
-                        <td><?php echo ($mostra['sexo'] == 1 ? $s[0] : $s[1]); ?></td>-->
+                        <td><?php echo $mostra['apelido']; ?></td>
+<!--                        <td><?php echo ($mostra['sexo'] == 1 ? $s[0] : $s[1]); ?></td>-->
                         <td><?php echo $mostra['email']; ?></td>
                         <td><?php echo ($mostra['niveldeacesso'] == 1 ? $acs[0] : $acs[1]); ?></td>
                         <td><?php

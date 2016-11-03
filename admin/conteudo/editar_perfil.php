@@ -5,8 +5,8 @@ error_reporting(0);
 		echo "<script> alert('Codigo invalido.'); location.href='index.php?p=painel&padm=usuarios'; </script>";
 	else{   
                 extract($_POST);
-                $get_usuario = $_GET['usuario'];
-                $sql_code = "SELECT codigo, email FROM t_users WHERE codigo <> '$get_usuario' AND email = '$email'";        
+                $cod_sessao = $_SESSION['codigo'];
+                $sql_code = "SELECT codigo, email FROM t_users WHERE codigo <> '$cod_sessao' AND email = '$email'";        
                 $sql_query = $PDO->query($sql_code);
 
                 $usu_codigo = intval($_GET['usuario']);
@@ -36,7 +36,17 @@ error_reporting(0);
                             WHERE codigo = '$usu_codigo'";
                     
                 $PDO->query($sql_code);
-                    
+                    $sql_code = "SELECT * FROM t_users WHERE email = '$email'";        
+                    $sql_query = $PDO->query($sql_code);
+                    foreach ($sql_query as $key => $userlogado){
+                    session_start();
+                    $_SESSION['codigo'] = $userlogado['codigo'];
+                    $_SESSION['nome'] = $userlogado['nome'];
+                    $_SESSION['sobrenome'] = $userlogado['sobrenome'];
+                    $_SESSION['niveldeacesso'] = $userlogado['niveldeacesso'];
+                    $_SESSION['email'] = $userlogado['email'];
+                    $_SESSION['apelido'] = $userlogado['apelido'];
+                    }
                 echo "<script> location.href='index.php?p=painel&padm=usuarios'; </script>";
 		}
 
@@ -73,7 +83,7 @@ if (count($erro) > 0) {
 }
 ?>
 
-<form class="form-horizontal" action="index.php?p=painel&padm=editar&usuario=<?php echo $usu_codigo;?>" method="POST" enctype="multipart/form-data" >
+<form class="form-horizontal" action="index.php?p=painel&padm=editar_perfil&usuario=<?php echo $usu_codigo;?>" method="POST" enctype="multipart/form-data" >
     <fieldset>
 
         <!-- Form Name -->

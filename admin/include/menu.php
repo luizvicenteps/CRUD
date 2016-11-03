@@ -7,10 +7,10 @@ $menu_usuarios_todos = "<a href='index.php?p=painel&padm=usuarios'>Pesquisar</a>
 $menu_usuarios_new =  '<a href="index.php?p=painel&padm=cadastrar">Novo</a>';
 $menu_sair = "<a href='index.php?p=core/logoff' class='btn btn-default btn-sm pull-right btn-danger'> Sair </a>";
 $menu_usuario_senha = "<a href='index.php?p=painel&padm=editar_senha&usuario=".$_SESSION['codigo']."' class='btn btn-default btn-sm pull-right'> Alterar Senha </a>";
-$menu_usuario_perfil = "<a href='index.php?p=painel&padm=editar&usuario=".$_SESSION['codigo']."' class='btn btn-primary btn-sm active'>Seu Perfil</a>";
+$menu_usuario_perfil = "<a href='index.php?p=painel&padm=editar_perfil&usuario=".$_SESSION['codigo']."' class='btn btn-primary btn-sm active'>Seu Perfil</a>";
 $menu_usuario_nome = $_SESSION["nome"];
 $menu_usuario_sobrenome = $_SESSION['sobrenome'];
-$menu_usuario_apelido = $_SESSION["apelido"];//TROCAR Login para forma que gostaria de ser Tratado
+$menu_usuario_apelido = $_SESSION["apelido"];
 $menu_usuario_email = $_SESSION["email"];
 $menu_usuario_img = "<img src='//placehold.it/100' class='avatar img-circle' alt='avatar'>";
 
