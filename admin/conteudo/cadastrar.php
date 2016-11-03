@@ -60,12 +60,12 @@ if (isset($_POST['enviar'])) {
 <!--<a href="index.php?p=usuarios">< Voltar</a>-->
 
 
-<a href="javascript:window.history.go(-1)">Voltar</a>
+<!--<a href="javascript:window.history.go(-1)">Voltar</a>-->
 <form class="form-horizontal" action="index.php?p=painel&padm=cadastrar" method="POST" enctype="multipart/form-data" >
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Novo Usuário</legend>
+        <legend></legend>
         <?php
 if (count($erro) > 0) {
     echo "<div class='erro'>";

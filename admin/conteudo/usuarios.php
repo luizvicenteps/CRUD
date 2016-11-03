@@ -6,8 +6,8 @@ $sql_code = "SELECT * FROM t_users";
 $sql_query = $PDO->query($sql_code);
 $linha = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
-echo "<h1>Usuários - Todos</h1>"; ?>
-
+echo "<h1>Pesquisar Usuários</h1>"; ?>
+<legend></legend>
 <div class="table table-responsive">
     <table id="formdt" class="table table-striped table-bordered" style="margin:0">
             <thead>
