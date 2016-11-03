@@ -15,8 +15,8 @@ echo "<h1>Pesquisar Usuários</h1>"; ?>
                     <th><strong>Cod</strong></th>
                     <th><strong>Nome</strong></th>
                     <th>Sobrenome</th>
-<!--                    <th>Login</th>
-                    <th>Sexo</th>-->
+                   <th>Apelido</th>
+<!--                     <th>Sexo</th>-->
                     <th>E-mail</th>
                     <th>Perfil</th>
                     <th>Data de Cadastro</th>
