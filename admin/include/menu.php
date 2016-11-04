@@ -55,12 +55,12 @@ $mostra_menus = "
                             <li>
                                 <div class='navbar-content'>
                                     <div class='row'>
-                                        <div class='col-md-5'>
+                                        <div class='col-md-5 col-xs-5'>
                                             $menu_usuario_img
                                             <p class='text-center small'>
                                                 <a href='#'> </a></p>
                                         </div>
-                                        <div class='col-md-7'>
+                                        <div class='col-md-7 col-xs-7 '>
                                             <span> $menu_usuario_nome </br></span>
                                             <span> $menu_usuario_sobrenome </span>
                                             <p class='text-muted small'>
@@ -74,10 +74,10 @@ $mostra_menus = "
                                 <div class='navbar-footer'>
                                     <div class='navbar-footer-content'>
                                         <div class='row'>
-                                            <div class='col-md-6'>
+                                            <div class='col-md-6 col-xs-6'>
                                                 $menu_usuario_senha<!--<a href='#' class='btn btn-default btn-sm'>Change Passowrd</a>-->
                                             </div>
-                                            <div class='col-md-6'>
+                                            <div class='col-md-6 col-xs-6'>
                                                 $menu_sair <!-- <a href='http://www.jquery2dotnet.com' class='btn btn-default btn-sm pull-right'>Sair</a>-->
                                             </div>
                                         </div>
