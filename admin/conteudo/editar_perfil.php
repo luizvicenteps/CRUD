@@ -92,7 +92,7 @@ if (count($erro) > 0) {
         <!-- Text input-->
         <div class="form-group">
              <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                 <img src="<?php echo '../img/'.$_SESSION['foto_perfil']?>" style="height: 100px" class="avatar img-circle" alt="avatar">
          
             </div>  
             <label class="col-md-4 control-label" for="nome">Avatar:</label>  

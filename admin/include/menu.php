@@ -12,7 +12,7 @@ $menu_usuario_nome = $_SESSION["nome"];
 $menu_usuario_sobrenome = $_SESSION['sobrenome'];
 $menu_usuario_apelido = $_SESSION["apelido"];
 $menu_usuario_email = $_SESSION["email"];
-$menu_usuario_img = "<img src='//placehold.it/100' class='avatar img-circle' alt='avatar'>";
+$menu_usuario_img = "<img src='../img/".$_SESSION['foto_perfil']."' style='height: 100px' class='avatar img-circle' alt='avatar'";
 
 
 $mostra_menus = " 
