@@ -17,8 +17,8 @@ $menu_usuario_img = "<img src='../img/".$_SESSION['foto_perfil']."' style='heigh
 
 $mostra_menus = " 
                 
-                <nav class='nav navbar-inverse navbar-fixed-top role='navigation''>
-        <div class='container'>
+                <nav class='nav navbar-inverse navbar-fixed-top' role='navigation'>
+        <div class='container topnav'>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class='navbar-header'>
                 <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'>
