@@ -59,6 +59,8 @@ if (isset($_POST['enviar'])) {
 }
 ?>
 
+
+
 <h1>Cadastrar Usuário</h1>
 
 <!--<a href="index.php?p=usuarios">< Voltar</a>-->
@@ -70,7 +72,7 @@ if (isset($_POST['enviar'])) {
 
         <!-- Form Name -->
         <legend></legend>
-        <?php
+<?php
 if (count($erro) > 0) {
     echo "<div class='erro'>";
     foreach ($erro as $valor)
